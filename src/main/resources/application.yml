@@ -1,0 +1,17 @@
+server:
+  port: 9000
+  context-path: /authserver
+
+#申请授权码账户信息
+security:
+  user:
+    name: bar
+    password: barsecret
+
+#应用客户端密码模式申请令牌或者授权码模式申请令牌所需账户信息
+  oauth2:
+    client:
+      client-id: foo
+      client-secret: foosecret
+      authorized-grant-types: authorization_code,refresh_token,password
+      scope: openid
