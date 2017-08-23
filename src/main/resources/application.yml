@@ -13,5 +13,6 @@ security:
     client:
       client-id: foo
       client-secret: foosecret
-      authorized-grant-types: authorization_code,refresh_token,password
+      authorized-grant-types: authorization_code,refresh_token,password,implicit
       scope: openid
+#      access-token-validity-seconds: 3
