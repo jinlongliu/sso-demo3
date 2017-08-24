@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--MBG运行时加载额外包的路径，比如JDBC drivers；jar，zip压缩文件或者是加入到classpath的路径-->
+    <classPathEntry location="D:\02maven_repo\mysql\mysql-connector-java\5.1.43\mysql-connector-java-5.1.43.jar" />
+
+    <!--context 严格顺序-->
+    <!--(property*,plugin*,commentGenerator?,(connectionFactory|jdbcConnection),javaTypeResolver?,
+    javaModelGenerator,sqlMapGenerator?,javaClientGenerator?,table+)-->
+    <context id="MySQLTables" targetRuntime="MyBatis3">
+
+        <!--插件-->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <!--分页-->
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>
+
+        <!--取消注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://172.18.60.121:3306/liujinlong"
+                        userId="root"
+                        password="123qwe!@#QWE">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--Model生成包路径，项目路径-->
+        <javaModelGenerator targetPackage="org.playchain.demo3.model" targetProject="D:\01workspace\demo3\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+            <property name="constructorBased" value="true" />
+        </javaModelGenerator>
+
+        <!--mapper XML生成信息-->
+        <sqlMapGenerator targetPackage="mapper"  targetProject="D:\01workspace\demo3\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--mapper 接口文件-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.playchain.demo3.mapper"  targetProject="D:\01workspace\demo3\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="user">
+            <property name="useActualColumnNames" value="true"/>
+            <!--主键-->
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+        </table>
+
+        <table tableName="role">
+            <property name="useActualColumnNames" value="true"/>
+            <!--主键-->
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+        </table>
+
+        <table tableName="permission">
+            <property name="useActualColumnNames" value="true"/>
+            <!--主键-->
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+        </table>
+
+        <table tableName="user_role">
+            <property name="useActualColumnNames" value="true"/>
+            <!--主键-->
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+        </table>
+
+        <table tableName="role_permission">
+            <property name="useActualColumnNames" value="true"/>
+            <!--主键-->
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+        </table>
+
+    </context>
+</generatorConfiguration>
