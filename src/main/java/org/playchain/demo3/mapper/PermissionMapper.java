@@ -41,6 +41,6 @@ public interface PermissionMapper {
             "LEFT JOIN role_permission rp ON rp.role_id = r.id\n" +
             "LEFT JOIN permission p ON p.id = rp.permission_id\n" +
             "WHERE\n" +
-            "\tu.id = 1")
+            "\tu.id = #{id}")
     List<Permission> selectPermissionByUserId(Integer id);
 }
