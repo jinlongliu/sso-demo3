@@ -14,5 +14,19 @@ security:
       client-id: foo
       client-secret: foosecret
       authorized-grant-types: authorization_code,refresh_token,password,implicit
+#      authorized-grant-types: password
       scope: openid
 #      access-token-validity-seconds: 3
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.18.60.121:3306/liujinlong
+    username: root
+    password: 123qwe!@#QWE
+    #是否使用schema.sql初始化数据库，存放resources目录
+    initialize: false
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
