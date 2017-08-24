@@ -19,4 +19,29 @@ public class HomeController {
         return "admin";
     }
 
+    @RequestMapping("/user1")
+    public String user1() {
+        return "user1";
+    }
+
+    @RequestMapping("/user2")
+    public String user2() {
+        return "user2";
+    }
+
+    @RequestMapping("/user3")
+    public String user3() {
+        return "user3";
+    }
+
+    @RequestMapping("/user4")
+    public String user4() {
+        return "user4";
+    }
+
+    @RequestMapping("/dev")
+    public String dev() {
+        return "dev";
+    }
+
 }
