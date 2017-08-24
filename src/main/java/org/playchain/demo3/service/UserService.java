@@ -29,6 +29,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     PermissionMapper permissionMapper;
 
+    /*登录时需要调用*/
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserExample userExample = new UserExample();
@@ -47,9 +48,9 @@ public class UserService implements UserDetailsService {
                 }
             }
 
+//            从数据库查询用户详情交给spring security比对
             return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
                     grantedAuthorities);
-
         } else {
             throw new UsernameNotFoundException("admin:" + username + "do not exist!");
         }

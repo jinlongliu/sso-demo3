@@ -27,6 +27,8 @@ public class MyInvocationSecurityMetadataSourceService implements FilterInvocati
     /*
     * 加载权限表中所有定义权限
     *
+    * 只在第一登录验证时加载一次
+    *
     * */
     public void loadResourceDefine() {
         map = new HashMap<>();
@@ -47,9 +49,13 @@ public class MyInvocationSecurityMetadataSourceService implements FilterInvocati
 
     @Override
     public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
+//        资源定义只加载一次
         if (map == null) loadResourceDefine();
 
-//        object包含请求信息
+//        多次加载
+//        loadResourceDefine();
+
+//        object包含请求信息，通过URL匹配返回所需要的权限
         HttpServletRequest request = ((FilterInvocation) object).getHttpRequest();
         AntPathRequestMatcher matcher;
         String resUrl;

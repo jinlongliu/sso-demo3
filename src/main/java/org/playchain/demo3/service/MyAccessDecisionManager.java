@@ -25,6 +25,7 @@ public class MyAccessDecisionManager implements AccessDecisionManager {
             return;
         }
 
+//        比对URL所需要的
         ConfigAttribute c;
         String needRole;
         for (Iterator<ConfigAttribute> iterator = configAttributes.iterator(); iterator.hasNext();) {
@@ -37,7 +38,6 @@ public class MyAccessDecisionManager implements AccessDecisionManager {
             }
         }
         throw new AccessDeniedException("no right");
-
     }
 
     @Override
