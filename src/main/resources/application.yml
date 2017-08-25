@@ -16,6 +16,8 @@ security:
       authorized-grant-types: authorization_code,refresh_token,password,implicit
 #      authorized-grant-types: password
       scope: openid
+    authorization:
+      check-token-access: true
 #      access-token-validity-seconds: 3
 
 spring:
