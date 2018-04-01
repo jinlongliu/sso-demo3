@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 9003
   context-path: /authserver
 
 
@@ -11,22 +11,23 @@ security:
 #    password: barsecret
 
 #应用客户端密码模式申请令牌或者授权码模式申请令牌所需账户信息
-  oauth2:
-    client:
-      client-id: foo
-      client-secret: foosecret
-      authorized-grant-types: authorization_code,refresh_token,password,implicit
-#      authorized-grant-types: password
-      scope: openid
-    authorization:
-#     check_token默认deny_all,需要手动设置true相应endpoint才有效
-      check-token-access: true
-#      access-token-validity-seconds: 3
+#注释掉采用MyTokenConfig 使用数据库存储token
+#  oauth2:
+#    client:
+#      client-id: foo2
+#      client-secret: foosecret2
+#      authorized-grant-types: authorization_code,refresh_token,password,implicit
+##      authorized-grant-types: password
+#      scope: openid
+#    authorization:
+##     check_token默认deny_all,需要手动设置true相应endpoint才有效
+#      check-token-access: true
+##      access-token-validity-seconds: 3
 
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://172.18.60.121:3306/liujinlong?autoReconnect=true&useSSL=false
+    url: jdbc:mysql://139.198.15.40:3306/sso-test?autoReconnect=true&useSSL=false
     username: root
     password: 123qwe!@#QWE
     #是否使用schema.sql初始化数据库，存放resources目录
